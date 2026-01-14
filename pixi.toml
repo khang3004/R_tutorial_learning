@@ -1,0 +1,13 @@
+[workspace]
+authors = ["KhangDS <gausseuler159357@gmail.com>"]
+channels = ["conda-forge"]
+name = "R_tutorial_learning"
+platforms = ["osx-arm64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+r-base = ">=4.5.2,<4.6"
+r-tidyverse = ">=2.0.0,<3"
+r-janitor = ">=2.2.1,<3"
