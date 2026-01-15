@@ -2,13 +2,21 @@ source("src/kernel_density_estimation/kde_point_estimation.R")
 source("src/kernel_density_estimation/gaussian_kernel.R")
 source("src/kernel_density_estimation/kde_visualization.R")
 
-#1 Instantiate
-my_model <- KDE(data=c(10,12,11,15,12,14,16,11,12), h=1.5)
+# 1. Instantiate (Khởi tạo)
+# Thử cố tình viết sai chữ hoa xem nó có tự sửa không?
+my_model <- KDE(data = c(10, 12, 11, 15, 12, 14, 16, 11, 12),
+                kernel_type = "epanechnikov")
 
-#2. Use the model
-print(class(my_model))
+# 2. Verify Object
+print(paste("Model Type:", class(my_model)))
+print(paste("Selected Bandwidth:", round(my_model$h, 4)))
 
-plot(my_model)
+# 3. Predict & Plot
+# Tạo lưới dữ liệu
+grid <- seq(8, 18, 0.1)
+y <- predict(my_model, grid)
 
-density_at_13 <- predict(my_model, x_grid = 13)
-print(paste("Density at 13 is: ", density_at_13))
+# Vẽ hình
+plot(grid, y, type = "l", col = "purple", lwd = 2,
+     main = "Epanechnikov KDE (Optimized Code)")
+rug(my_model$data)
