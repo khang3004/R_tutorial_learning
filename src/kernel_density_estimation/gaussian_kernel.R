@@ -3,13 +3,13 @@ gaussian_kernel <- function(u) {
   return(result)
 }
 
-compute_contribution <- function(x, observation, h) {
+compute_contribution_gaussian <- function(x, observation, h) {
   u <- (x - observation) / h
   res <- (1 / h) * gaussian_kernel(u)
   return(res)
 }
 
-compute_contribution(3, c(0, 1, 2), 0.3)
+# compute_contribution_gaussian(3, c(0, 1, 2), 0.3)
 
 # # POP kde Point Estimation funciton
 # kde_point_estimate <- function(x, observate, h){
